@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Customers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CustomerController::class, 'index'])->name('customer.main');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
