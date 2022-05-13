@@ -63,7 +63,13 @@ Route::group(
 
 
 //-----------Seller routes
-Route::prefix('seller')->group(function() {
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale() . '/seller',
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+        //  'namespace' => 'admin'
+    ],
+    function () {
     Route::get('/login', [Seller::class, 'Index'])->name('seller.login_form');
     Route::post('/login/seller', [Seller::class, 'Login'])->name('seller.login');
      Route::get('/', [Seller::class, 'Dashboard'])->name('seller.dashboard')->middleware('seller');
@@ -71,6 +77,7 @@ Route::prefix('seller')->group(function() {
     Route::get('/accept/{token}/{invitee_id}', [Seller::class, 'ConfirmRegister'])->name('seller.invite.accept');
     Route::post('/confirmed/seller', [Seller::class, 'SellerConfirmed'])->name('seller.confirmed');
     Route::get('/confirmed/login/{email}/{password}', [Seller::class, 'LoginAfterConfirm'])->name('confirmed.login');
+    Route::get('/rooms', [Seller::class, 'Rooms'])->name('seller.rooms')->middleware('seller');
 
 
 

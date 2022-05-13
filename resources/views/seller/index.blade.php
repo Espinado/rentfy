@@ -4,7 +4,7 @@
 
 <nav class="breadcrumb sl-breadcrumb">
     <a class="breadcrumb-item" href="{{route('seller.dashboard')}}">Starlight</a>
-    <span class="breadcrumb-item active">Dashboard</span>
+    <span class="breadcrumb-item active">{{ __('system.dashboard') }}</span>
   </nav>
 <div class="content_wrapper">
 
@@ -22,7 +22,13 @@
         <a href="{{route('seller.dashboard')}}" class="sl-menu-link active">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-            <span class="menu-item-label">Dashboard</span>
+            <span class="menu-item-label">{{ __('system.dashboard') }}</span>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <a href="{{route('seller.rooms')}}" class="sl-menu-link">
+          <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
+            <span class="menu-item-label">{{ __('system.add_room') }}</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
 

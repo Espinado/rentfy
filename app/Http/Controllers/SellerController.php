@@ -98,4 +98,9 @@ class SellerController extends Controller
             return back()->with('error', 'Login failed');
         }
     }
+
+    public function Rooms() {
+
+        return view ('seller.rooms.index');
+    }
 }
